@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "./useForm";
 
 function FormImpl() {
   const [values, handleChange] = useForm({ email: "", password: "" });
+
+  useEffect(() => {
+    console.log("render");
+
+    return () => {
+      console.log("wont run");
+    };
+  }, []);
 
   return (
     <div>
